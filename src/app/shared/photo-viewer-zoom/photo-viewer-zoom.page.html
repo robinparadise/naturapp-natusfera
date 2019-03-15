@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-slides #mySlider [options]="slideOpts" style="">
+    <ion-slide class="slide" *ngFor="let photo of images;">
+      <div class="swiper-zoom-container">
+        <img [src]="photo.large_url" />
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

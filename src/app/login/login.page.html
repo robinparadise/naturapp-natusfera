@@ -1,0 +1,25 @@
+<ion-content>
+     <ion-fab vertical="top" horizontal="start" slot="fixed">
+             <ion-icon name="home" size="large" color="primary"[routerLink]="['/']"></ion-icon>
+    </ion-fab>
+    <div class="login-background login-relative">
+        <div class="bottom-rounded">
+            <img src="../../assets/img/headers/mask.png" alt="">
+        </div>
+    </div>
+    <div class="padding-buttons text-center">
+
+        <ion-button color="primary" expand="block" fill="outline" text-left="" (click)="googleSignIn()" >
+            <p [innerHTML]="'SIGN_IN_GOOGLE'|translate"></p>
+            <ion-icon slot="start" name="logo-googleplus"></ion-icon>
+        </ion-button>
+        <ion-button expand="block" class="button button-outline ion-color ion-color-primary top1" routerLink="/login/register" >
+            <div slot="start" name="star"></div>
+            <p [innerHTML]="'REGISTER_LABEL_EMAIL'|translate"></p>
+        </ion-button>
+    </div>
+
+</ion-content>
+<ion-footer class="text-center" routerLink="/login/signin">
+    <p class="font12" [innerHTML]="'SIGN_IN_NATU'|translate"></p>
+</ion-footer>

@@ -1,0 +1,44 @@
+<ion-content>
+    <ion-back-button defaultHref="login"></ion-back-button>
+    <div class="register-form padding-buttons text-center">
+
+        <h4 class="">{{"REGISTER" | translate}}</h4>
+        <form #registerForm="ngForm" novalidate>
+
+            <ion-item class="top1 box-transparent">
+                <ion-input (ngModel)="register.login"  name="login" #login="ngModel"  color="white" class="transparent" placeholder="{{'NAME'|translate}}" type="text"  spellcheck="false" autocapitalize="off" required></ion-input>
+            </ion-item>
+            <ion-item class="top1 box-transparent" color="white">
+                <ion-input (ngModel)="register.email"   name="email" #email="ngModel" class="transparent" color="white" placeholder="{{'EMAIL'|translate}}" type="email"  spellcheck="false" autocapitalize="off" required></ion-input>
+            </ion-item>
+            <ion-item class="top1 box-transparent" color="white">
+                <ion-input (ngModel)="register.password"   name="password" #password="ngModel" class="transparent" color="white" placeholder="{{'PASSWORD'|translate}}" type="password"  spellcheck="false" autocapitalize="off" required></ion-input>
+            </ion-item>
+
+            <ion-text color="danger">
+                <p id="error_email" [hidden]="(login.valid && email.valid && password.valid) || submitted == false" padding-left translate>REGISTER_ERROR_DATA</p>
+                <p id="error_email_account" [hidden]="userExists == false" padding-left translate>REGISTER_USER_EXIST</p>
+            </ion-text>
+            <ion-button expand="block" class="button ion-color ion-color-primary top1" type="submit" (click)="onRegister(registerForm)">
+                <p [innerHTML]="'REGISTER_LABEL_EMAIL' | translate"></p>
+            </ion-button>
+        </form>
+    </div>
+    <div class="login-background max-height-on-keyboard">
+
+        <div class="bottom-rounded hide-on-keyboard">
+        <img src="../../../assets/img/headers/mask.png" alt="">
+        </div>
+    </div>
+    <div class="padding-buttons text-center hide-on-keyboard" style="padding-top: 20px">
+        <ion-button color="primary" expand="block" fill="outline">
+            <p [innerHTML]="'SIGN_IN_GOOGLE'|translate"></p>
+            <ion-icon slot="start" name="logo-googleplus"></ion-icon>
+        </ion-button>
+    </div>
+
+
+</ion-content>
+<!--<ion-footer class="text-center">-->
+<!--<p>¿Ya tienes cuenta? <a>Inicia sesión</a></p>-->
+<!--</ion-footer>-->

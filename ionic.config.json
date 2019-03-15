@@ -1,0 +1,12 @@
+{
+  "name": "naturapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "proxies": [
+    {
+    "path": "/api",
+    "proxyUrl": "https://natusfera.gbif.es"
+  }]
+}

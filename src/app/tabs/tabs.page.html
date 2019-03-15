@@ -1,0 +1,24 @@
+<ion-tabs (ionTabsWillChange)="changeTab()">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="world"></ion-icon>
+      <ion-label>{{'EXPLORE'|translate}}</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="observe" (click)="changeTab()">
+      <ion-icon name="natur-cam"></ion-icon>
+      <ion-label>{{'OBSERVE'|translate}}</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="me">
+      <ion-icon name="natur-user"></ion-icon>
+      <ion-label>{{'ME'|translate}}</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="projects">
+      <ion-icon name="natur-projects"></ion-icon>
+      <ion-label>{{'PROJECTS'|translate}}</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="guides">
+      <ion-icon name="natur-guide"></ion-icon>
+      <ion-label>{{'GUIDES'|translate}}</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

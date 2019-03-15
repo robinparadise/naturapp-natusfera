@@ -1,0 +1,45 @@
+<!--
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/guides"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{item.title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleFollow()">
+        <ion-icon name="{{isJoined ? 'star' : 'star-outline'}}"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+-->
+<ion-content>
+ 
+<div class="header-projects">
+    <div class="header-title">{{item.title}}</div>
+ 
+    <div class="favourite" *ngIf="this.auth == true" >
+        <ion-buttons slot="end">
+     <ion-button (click)="toggleFollow()">
+         <ion-icon name="{{isJoined ? 'star' : 'star-outline'}}"></ion-icon>
+       </ion-button>
+      </ion-buttons>
+    </div>
+    
+    <div class="back-btn" routerLink="/tabs/projects" defaultHref="/tabs/projects">
+        <img src="../../../assets/img/svg/back.svg" alt="">
+    </div>
+    <img *ngIf="this.item.cover_content_type"  src="{{'https://natusfera.gbif.es/attachments/projects/' + this.item.id + '-cover.'+ this.item.cover_content_type.split('/')[1]}}" alt="">
+  </div>
+
+  <ion-item-divider>
+    <p class="top1">{{item.description}}</p>
+  </ion-item-divider>
+  <ion-list class="top1">
+    <ion-item *ngFor="let obj of data" (click)="select(obj)">
+      <img img *ngIf="obj.photos.length > 0" [src]="obj.photos[0].thumb_url">
+      <ion-card-title *ngIf="obj.taxon && obj.taxon.name">{{obj.taxon.name}}</ion-card-title>
+      <div (click)="addObservation()" float-right class="add-btn">{{'ADD'|translate}}</div>
+    </ion-item>
+  </ion-list>
+</ion-content>

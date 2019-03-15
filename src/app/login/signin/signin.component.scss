@@ -1,0 +1,19 @@
+.login-background {
+    height: 82vh;
+    .header-form {
+        position: relative;
+        &::after {
+            clear: both;
+        }
+    }
+}
+
+.register-form {
+    position: absolute;
+    top: 11em;
+    width: 100%;
+    z-index: 300;
+    h4 {
+        color: white;
+    }
+}

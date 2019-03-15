@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="close()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{'PROJECTS'| translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <p *ngIf=" data && data.length==0">{{'EMPTY_RESULTS'|translate}}</p>
+    <ion-list>
+        <ion-item *ngFor="let obj of data" (click)="select(obj)">
+            <ion-card-title>{{obj.title}}</ion-card-title>
+        </ion-item>
+    </ion-list>
+</ion-content>

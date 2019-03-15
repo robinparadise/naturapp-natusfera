@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="close()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{'POSITION'|translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div #mapCanvas id="map_select">
+        <ion-icon name="locate"></ion-icon>
+    </div>
+    <ion-button expand="full" size="large" (click)="selected()">{{'SELECT_POSITION'|translate}}</ion-button>
+</ion-content>

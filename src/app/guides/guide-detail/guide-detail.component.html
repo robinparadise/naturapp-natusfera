@@ -1,0 +1,29 @@
+
+<ion-content>
+ 
+  <div class="header-projects">
+ <div class="header-title">{{item.title}}</div>
+ 
+ 
+ 
+ <div class="back-btn" routerLink="/tabs/guides" defaultHref="/tabs/guides">
+     <img src="../../../assets/img/svg/back.svg" alt="">
+ </div>
+ <img src="../../../assets/img/headers/guides-detail.jpg" alt=""></div>
+ 
+ 
+  <ion-item-divider>
+    <p class="top1">{{item.description}}</p>
+  </ion-item-divider>
+  <ion-item-divider>
+    <ion-searchbar (ionInput)="this.query$.next($event.target.value)" placeholder="Filter"></ion-searchbar>
+  </ion-item-divider>
+  <ion-grid class="top1">
+    <ion-item *ngFor="let obj of this.filter">
+<!--      <ion-img *ngIf="obj.guide_photos.length > 0" [src]="obj.guide_photos[0].photo.thumb_url"></ion-img>-->
+      <img *ngIf="obj.guide_photos.length > 0" [src]="obj.guide_photos[0].photo.thumb_url" src-default src-fallback="assets/img/default.png"/>
+      <ion-card-title>{{obj.name}}</ion-card-title>
+      <div (click)="addObservation($event, obj)" class="add-btn">{{'ADD'|translate}}</div>
+    </ion-item>
+  </ion-grid>
+</ion-content>

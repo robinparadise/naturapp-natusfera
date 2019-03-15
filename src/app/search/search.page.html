@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button></ion-back-button>
+    <ion-searchbar [debounce]="100" placeholder="{{'SEARCH'|translate}}" (ionChange)="search($event)" (cancel)="cancel()"></ion-searchbar>
+  </ion-toolbar>
+  <ion-segment [(ngModel)]="selector" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="taxo">
+      <ion-label>{{'ORGANISMS'|translate}}  {{itemsTaxa.length}}</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="users">
+      <ion-label>{{'USERS'|translate}} {{itemsUsers.length}}</ion-label>
+
+    </ion-segment-button>
+    <ion-segment-button value="place">
+      <ion-label>{{'PLACES'|translate}} {{itemsPlace.length}}</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+<ion-content padding>
+  <ion-list *ngIf="selector=='taxo'">
+    <ion-card class="" *ngFor="let obj of itemsTaxa" (click)="select('taxa', obj)">
+      <ion-img [src]="obj.photo_url || obj.image_url" src-default src-fallback="assets/img/default.png"></ion-img>
+      <ion-card-title>{{obj.name}}</ion-card-title>
+      <p class="username" *ngIf="obj.taxon_names.length>0"><a >{{obj.taxon_names[0].name}}</a></p>
+    </ion-card>
+  </ion-list>
+  <ion-list *ngIf="selector=='users'" class="user-list">
+    <ion-card class="" *ngFor="let obj of itemsUsers" (click)="select('users',obj)">
+      <ion-img *ngIf="obj.icon_url" [src]="obj.icon_url" (click)="userProfile($event, obj)"></ion-img>
+      <ion-icon *ngIf="obj.icon_url == null" class="avatar" name="person" (click)="userProfile($event, obj)"></ion-icon>
+      <ion-card-title *ngIf="obj.name != null">{{obj.name}}</ion-card-title>
+      <p class="username"><a >{{obj.login}}</a></p>
+    </ion-card>
+  </ion-list>
+  <ion-list *ngIf="selector=='place'" class="place-list">
+    <ion-card class="" *ngFor="let obj of itemsPlace" (click)="select('place',obj)">
+      <ion-card-title>{{obj.display_name}}</ion-card-title>
+      <p class="username"><a >{{obj.login}}</a></p>
+    </ion-card>
+  </ion-list>
+</ion-content>

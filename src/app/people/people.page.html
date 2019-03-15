@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-buttons slot="start">
+    <ion-back-button >
+<!--      <ion-icon name="arrow-back" (click)="back()"></ion-icon>-->
+    </ion-back-button>
+  </ion-buttons>
+  <div class="header-user">
+    <div *ngIf="user">
+      <h3>{{user.fullname || user.name}}</h3>
+<!--      <ion-button id="icon-gear" fill="clear" routerLink="/me/settings">-->
+<!--        <ion-icon class="font28" name="natur-gear" pull-right></ion-icon>-->
+<!--      </ion-button>-->
+    </div>
+
+    <ion-avatar *ngIf="user && user.picture">
+      <ion-img [src]="user.picture"></ion-img>
+    </ion-avatar>
+    <ion-avatar *ngIf="user && user.picture == null">
+      <ion-icon name="person"></ion-icon>
+    </ion-avatar>
+  </div>
+  <div class="content-background">
+    <div class="bottom-rounded" style="position: absolute"></div>
+    <div class="bottom-rounded"></div>
+  </div>
+</ion-header>
+
+<ion-content *ngIf="user">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+            pullingIcon="arrow-dropdown"
+            pullingText="{{'PULL_REFRESH'|translate}}"
+            refreshingSpinner="circles"
+            refreshingText="{{'REFRESHING'|translate}}">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-list *ngIf="data">
+    <ion-item *ngFor="let obj of data" (click)="viewItem(obj)" (press)="longPress($event, obj)">
+      <!--<ion-row class="">-->
+      <ion-img *ngIf="obj.photos.length > 0" [src]="obj.photos[0].thumb_url"></ion-img>
+      <ion-col>
+        <ion-row>
+          <ion-card-title>{{obj.species_guess || 'Sin nombre' }}</ion-card-title>
+
+        </ion-row>
+        <ion-row>
+          <span class="date">{{obj.created_at | date:'HH:mm dd/MM/yy'}}</span>
+        </ion-row>
+      </ion-col>
+      <div class="pull-right" float-lg-right="" float-end="true">
+        <ion-icon name="locate" *ngIf="obj.latitude"></ion-icon>
+      </div>
+      <!--</ion-row>-->
+    </ion-item>
+  </ion-list>
+  <div class="content">
+    <div class="content-empty text-center" *ngIf="data && data.length == 0">
+      <h3>{{'EMPTY_OBSERVATIONS'|translate}}</h3>
+      <img height="200px" src="../../assets/img/emoji-trouble.svg">
+    </div>
+    <!--    <div *ngIf="data">-->
+
+    <!--    </div>-->
+  </div>
+</ion-content>

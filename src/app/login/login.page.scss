@@ -1,0 +1,44 @@
+
+.login-background{
+  height: 65vh;
+  background-image: url("../../assets/img/login.jpg");
+  background-size: cover;
+  background-position: 0 -9em;
+    position:relative;
+}
+
+.login-relative{
+    position: relative;
+}
+
+.bottom-rounded{
+//  min-height: 100px;
+//  position:relative;
+//  overflow:hidden;
+//  top: calc(100% - 100px);
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+
+//  &:before{
+//    content:'';
+//    position:absolute;
+//    bottom:50%;
+//    width:100%;
+//    height:100%;
+//    border-radius:100%;
+//    box-shadow: 0px 300px 0px 300px #fff;
+//  }
+
+}
+.padding-buttons{
+  padding: 0 3em;
+}
+ion-footer{
+
+  a{
+    text-decoration: underline;
+  }
+}

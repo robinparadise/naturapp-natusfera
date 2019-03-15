@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg1163"
+   version="1.1"
+   viewBox="0 0 140.89944 140.8998"
+   height="140.8998mm"
+   width="140.89944mm">
+  <defs
+     id="defs1157" />
+  <metadata
+     id="metadata1160">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-2.8776603,-157.00249)"
+     id="layer1">
+    <g
+       id="g913"
+       transform="matrix(0.35277777,0,0,-0.35277777,73.327381,165.19434)">
+      <path
+         d="m 0,0 c -97.316,0 -176.48,-79.164 -176.48,-176.48 0,-97.315 79.164,-176.479 176.48,-176.479 97.316,0 176.479,79.164 176.479,176.479 C 176.479,-79.164 97.316,0 0,0 m 0,-376.18 c -110.117,0 -199.7,89.582 -199.7,199.7 0,110.117 89.583,199.701 199.7,199.701 110.117,0 199.7,-89.584 199.7,-199.701 0,-110.118 -89.583,-199.7 -199.7,-199.7"
+         style="fill:#ededed;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path915" />
+    </g>
+    <g
+       id="g917"
+       transform="matrix(0.35277777,0,0,-0.35277777,55.502968,213.51043)">
+      <path
+         d="m 0,0 c 0,-9.67 -7.838,-17.51 -17.508,-17.51 -9.669,0 -17.509,7.84 -17.509,17.51 0,9.67 7.84,17.508 17.509,17.508 C -7.838,17.508 0,9.67 0,0"
+         style="fill:#ededed;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path919" />
+    </g>
+    <g
+       id="g921"
+       transform="matrix(0.35277777,0,0,-0.35277777,101.03285,214.21634)">
+      <path
+         d="m 0,0 c 0,-9.671 -7.84,-17.509 -17.509,-17.509 -9.67,0 -17.509,7.838 -17.509,17.509 0,9.669 7.839,17.509 17.509,17.509 C -7.84,17.509 0,9.669 0,0"
+         style="fill:#ededed;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path923" />
+    </g>
+    <g
+       id="g925"
+       transform="matrix(0.35277777,0,0,-0.35277777,67.775611,261.26771)">
+      <path
+         d="m 0,0 -21.565,8.617 c 0.34,0.852 35.397,85.162 133.881,48.596 l -8.073,-21.77 C 26.701,64.197 1.043,2.631 0,0"
+         style="fill:#ededed;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path927" />
+    </g>
+  </g>
+</svg>

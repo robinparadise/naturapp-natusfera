@@ -1,0 +1,51 @@
+ion-list{
+  ion-card{
+    ion-img{
+      height: 5em;
+      width: 30%;
+      background-size: cover;
+      object-fit: cover;
+      float: left;
+      margin-right: .5em;
+    }
+  }
+  &.user-list{
+   ion-img{
+    width: 15%
+   }
+   ion-icon{
+     font-size: 4.25rem;
+     float: left;
+     margin: 0 .25em;
+   }
+  }
+}
+ion-content{
+  --background: transparent;
+}
+ion-segment{
+  background: white;
+
+  span{
+    margin-left: .2em;
+  }
+}
+//.user-list{
+  ion-card{
+    padding: 5px;
+  }
+  p, a{
+    color: gray;
+    --color: gray;
+  }
+//}
+
+
+.sc-ion-card-md-h{
+    box-shadow: none;
+    margin: 0;
+}
+
+ion-card-title, .username{
+    font-family: var(--fuente-principal);
+}

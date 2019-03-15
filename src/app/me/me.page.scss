@@ -1,0 +1,138 @@
+
+ion-header{
+  background: url(../../assets/img/bg_user.png);
+  background-size: cover;
+  &::after{
+    background: none;
+  }
+}
+ion-content{
+  //--background: url('../../assets/img/bg_user.png');
+}
+.header-user{
+
+  position: relative;
+  width: 100%;
+  z-index: 10;
+
+
+  h3{
+    color: white;
+    margin: 1em 0em 0em .8em;
+    &:after{
+      background: white;
+      content: '';
+      //width: 20%;
+      width: 3.5em;
+      height: 1px;
+      position: absolute;
+      top: 1.2em;
+      left: 1em;
+    }
+  }
+  #icon-gear{
+    position: absolute;
+    top: -1.35em;
+    right: 0em;
+    //font-size: 1.5rem;
+    color: #ffffff;
+    --color: #ffffff;
+  }
+  #mail{
+    position: absolute;
+    top: -1.35em;
+    right: 2.85em;
+    //font-size: 1.5rem;
+    color: #ffffff;
+    --color: #ffffff;
+  }
+  ion-avatar{
+    width: 140px;
+    height: 140px;
+    margin: 3em auto -9em auto;
+    padding: 8px;
+    background-color: rgba(255,255,255,0.3);
+      position: absolute;
+      right: 0;
+      left: 0;
+      top: 56px;
+
+    ion-icon{
+      width: 100%;
+      height: 100%;
+      color: #73e600c7;
+      --color: #73e600c7;
+    }
+  }
+}
+
+.separador{
+    height: 80px;
+}
+.content-background{
+  position: relative;
+//  margin-top: 3em;
+}
+.bottom-rounded{
+  min-height: 90px;
+  position: relative;
+  width: 100%;
+  bottom: -5px;
+  left: 0;
+  img{
+    /*position: absolute;*/
+    background-size: cover;
+    width: 100%
+  }
+
+//  &:before{
+//    content:'';
+//    position:absolute;
+//    bottom:50%;
+//    width:100%;
+//    height:100%;
+//    border-radius:100%;
+//      background-image: url(../../assets/img/headers/mask.png);
+//      background-size: cover;
+////    box-shadow: 0px 300px 0px 300px #fff;
+//  }
+
+}
+
+.content{
+  //padding: 0 3em;
+  background: #ffffff;
+  //height: 100%;
+
+  .content-empty{
+    color: #878787;
+    font-weight: bold;
+    h3{
+      margin-bottom: 1em;
+    }
+    padding: 3em 1em 0 1em;
+  }
+}
+ion-list{
+  padding-bottom: 16px;
+  margin-bottom: 0;
+}
+//item
+ion-item:nth-child(1){
+  margin-left: 0.15em;
+}
+//ion-card-title{
+//  margin-left: 0.15em;
+//}
+
+.me-list{
+    ion-card-title{
+        font-size: 14px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 100%;
+    }
+    .date{
+        font-size: 12px;
+    }
+}

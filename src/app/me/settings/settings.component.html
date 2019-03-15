@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()">
+      <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{'SETTINGS'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="person">
+      <ion-item>
+          <ion-avatar slot="start">
+            <img src="{{this.natuClient.user.picture || 'https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y'}}">
+          </ion-avatar>
+          <ion-label>{{this.natuClient.user.name}}</ion-label>
+          <ion-label>
+            <ion-button  (click)="signout()">
+               {{'SIGN_OUT'|translate}}
+            </ion-button>
+          </ion-label>
+        </ion-item>
+  </div>
+  
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Configuración de la aplicación</ion-label>
+    </ion-list-header>
+    <ion-item>
+        <ion-label>Autocompletar nombres</ion-label>
+        <ion-toggle [checked]="this.ac" (ionChange)="this.setAutocoplete()"></ion-toggle>
+    </ion-item>
+    <ion-item>
+        <ion-label>Idioma:</ion-label>
+          <ion-select (ionChange)="languageSet()" [(ngModel)]="language" okText="Ok" cancelText="Cancel">
+            <ion-select-option value="default" selected>Default</ion-select-option>
+            <ion-select-option value="en">English</ion-select-option>
+            <ion-select-option value="es">Spanish</ion-select-option>
+          </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-item-divider>
+      <ion-label>
+        
+      </ion-label>
+    </ion-item-divider>
+
+  <ion-list>
+    <ion-list-header>
+        <ion-label>{{'HELP'|translate}}</ion-label>
+      </ion-list-header>
+      <ion-item (click)="this.contact()">
+          <ion-label>Contactar soporte</ion-label>
+      </ion-item>
+      <ion-item>
+          <ion-label>¿Te encanta naturapp? Valóranos</ion-label>
+      </ion-item>
+      <ion-item-divider>
+      <ion-label>
+          Acerca
+      </ion-label>
+    </ion-item-divider>
+    <ion-item>
+        <ion-label>Reconocimiento</ion-label>
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+    </ion-item>
+    </ion-list>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Version: {{this.app.version || 'Latest'}}</ion-title>
+  </ion-toolbar>
+</ion-footer>

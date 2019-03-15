@@ -1,0 +1,14 @@
+ion-content{
+  background: transparent;
+  --background: transparent;
+}
+#map_select{
+  width: 100%;
+  height: calc( 100% - 65px );
+
+  ion-icon{
+    font-size: 48px;
+    top: calc(50% - 24px);
+    left: calc(50% - 24px);
+  }
+}

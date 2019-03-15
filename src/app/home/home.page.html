@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar text-center="">
+      <ion-button fill="outline" float-left="" (click)="toggleSearch()">
+        <ion-icon name="{{searchMode? 'close':'search'}}"></ion-icon>
+      </ion-button>
+      <ion-button class="map-selector" [ngClass]="{'selector': state == 0}" fill="outline" (click)="changeView(0)"><ion-icon name="natur-map"></ion-icon></ion-button>
+      <ion-button fill="outline" [ngClass]="{'selector': state == 1}" (click)="changeView(1)"><ion-icon name="natur-grid"></ion-icon></ion-button>
+      <ion-button fill="outline" [ngClass]="{'selector': state == 2}" (click)="changeView(2)"><ion-icon name="natur-list"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-header class="subheader" *ngIf="localRegion || searchElement" style="background: white;">
+  <p *ngIf="localRegion && !searchElement" translate>SEARCH_SHOW_NEAR_RESULTS</p>
+  <p *ngIf="searchElement">{{'SEARCH_FILTER_BY'|translate}} {{searchElement.name}}</p>
+  <ion-buttons>
+    <ion-button (click)="removeLocation()" slot="end"><ion-icon name="close"></ion-icon></ion-button>
+  </ion-buttons>
+</ion-header>
+
+<ion-content class="map-transparent">
+
+  <div #mapCanvas id="map_canvas"></div>
+  <div *ngIf="data.length!=0 && state != 0" class="home-grid">
+    <ion-grid>
+      <!--<ion-item *ngFor="let obj of data" class="" col-3>-->
+      <ion-row wrap="true" no-padding>
+      <!--<ion-col *ngFor="let obj of data">-->
+        <ion-card class="" *ngFor="let obj of data" [ngClass]="{'total-width' : state == 2, 'grid': state == 1 }" (click)="select(obj)">
+        <!--<ion-card class="">-->
+         
+         <div class="content-square">
+             <img height="10em" [src]="obj.photos.length > 0 ? obj.photos[0].thumb_url: null" src-default="assets/img/default.png" src-fallback="assets/img/default.png" class="thumb-img"/>
+         </div>
+         
+          
+          <!--<ion-card-content>-->
+            <ion-card-title *ngIf="obj.species_guess != null">{{obj.species_guess}}</ion-card-title>
+            <ion-card-title *ngIf="obj.species_guess == null">{{obj.observed_on}}</ion-card-title>
+            <p class="username"><a >{{obj.user_login}}</a></p>
+            <p class="id_please" *ngIf="obj.id_please && state == 2" translate>NEED_HELP_ID</p>
+          <!--</ion-card-content>-->
+        </ion-card>
+      <!--</ion-col>-->
+      </ion-row>
+      <!--</ion-item>-->
+    </ion-grid>
+      <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMoreData($event)" *ngIf="!localRegion && !searchElement ">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" [loadingText]="loadingText">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+</ion-content>

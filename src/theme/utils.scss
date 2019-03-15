@@ -1,0 +1,35 @@
+
+.text-center{ text-align: center}
+
+$separator-values: (1, 2, 5, 10);
+@each $i in $separator-values {
+  .top#{$i}{
+    margin-top: #{$i}em;
+  }
+  .padding-left#{$i}{
+    margin-left: #{$i}em;
+  }
+}
+
+
+$font-values: (10, 12, 14, 21, 28, 32);
+@each $i in $font-values {
+  .font#{$i}{
+    font-size: rem(#{$i}px);
+  }
+}
+
+.keyboard-is-open{
+  .hide-on-keyboard{
+    display: none !important;
+  }
+  .max-height-on-keyboard {
+    height: 100vh !important;
+  }
+}
+.pull-right{
+  float: right;
+}
+.pull-left{
+  float: left;
+}

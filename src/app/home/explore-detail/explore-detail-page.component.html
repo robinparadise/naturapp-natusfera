@@ -1,0 +1,157 @@
+<!--
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="item">{{item.species_guess?item.species_guess:''}}</ion-title>
+    <ion-buttons slot="end" *ngIf="editable">
+      <ion-button (click)="edit()">
+        <ion-icon name="create"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+-->
+
+<ion-content *ngIf="item">
+    <div>
+    <div class="relative-slider">
+       <div class="back-btn" onclick="history.back()">
+           <img src="../../../assets/img/svg/back.svg" alt="">
+       </div>
+        <div class="observation" *ngIf="item">
+            {{item.species_guess?item.species_guess:''}}
+            <div *ngIf="item.iconic_taxon_name" (click)="goTaxonomy(item.taxon)">
+                <ion-card-title *ngIf="!item.taxon_name && item.specie_guess">{{ item.specie_guess}}</ion-card-title>
+                <ion-card-title *ngIf="item.taxon_name">{{ item.taxon_name }}</ion-card-title>
+                <div style="color: #73e600;" *ngIf="item.iconic_taxon_name">{{ item.iconic_taxon_name}}</div>
+            </div>
+        </div>
+        <div class="sadow-slider" (click)="showImage()">
+            <img src="../../../assets/img/headers/shadow.png" alt="">
+        </div>
+        <ion-slides *ngIf="item.photos && item.photos.length>0"
+            pager="item.photos.length>0"
+            [options]="slideOpts" (click)="showImage()">
+
+            <ion-slide *ngFor="let img of item.photos">
+                <div class="content-slider">
+                    <img src="{{img.medium_url}}">
+                </div>
+            </ion-slide>
+        </ion-slides>
+    </div>
+
+    <div *ngIf="item.latitude">
+        <div #mapCanvas id="map_canvas2">
+        </div>
+    </div>
+
+    <ion-fab vertical="top" horizontal="end" slot="fixed" *ngIf="isOwner()"
+        style="margin-top: 225px;"
+        (click)="delete(); $event.stopPropagation()">
+        <ion-fab-button color="whiteLight" size="small"
+            style="--box-shadow:none;--border-radius: 0">
+            <ion-icon name="trash"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+    <ion-fab vertical="top" horizontal="start" slot="fixed"
+        style="margin-top: 225px;">
+        <ion-fab-button color="transparent" size="small"
+            style="--box-shadow:none;--border-radius: 0">
+            <img *ngIf="item.iconic_taxon_name; else elseNoName;"
+                src="https://natusfera.gbif.es/assets/iconic_taxa/{{item.iconic_taxon_name | lowercase}}-200px.png">
+            <ng-template #elseNoName>
+                <img src="https://natusfera.gbif.es/assets/iconic_taxa/unknown-200px.png">
+            </ng-template>
+        </ion-fab-button>
+    </ion-fab>
+    </div>
+
+
+
+    <div class="user-name pull-right " (click)="userProfile(item.user)">
+
+        <ion-label>
+            <ion-icon name="contact"></ion-icon>
+            {{item.user_login}}
+        </ion-label>
+    </div>
+
+   
+    <ion-item-divider>
+        <div class="quality-data">
+            <p>{{'DATA_QUALITY'|translate}} <b>{{item.quality_grade}}</b></p>
+            <span class="date" pull-rigth float-end>{{item.created_at | date:'HH:mm dd/MM/yy'}}</span>
+
+        </div>
+    </ion-item-divider>
+    <!--<ion-item-divider>-->
+    <div class="user-messages">
+        <ion-row>
+            <ion-col>
+                <p class="title-divider">{{'MESSAGES'|translate}}</p>
+                <ion-list *ngIf="item.identifications_count > 0 && itemMore">
+                    <ion-item *ngFor="let obj of itemMore.identifications">
+                        <ion-img *ngIf="obj.user.user_icon_url" [src]="obj.user.user_icon_url"></ion-img>
+                        <ion-icon *ngIf="obj.user.user_icon_url == null" class="avatar" name="person"></ion-icon>
+                        <ion-col>
+                            <ion-row>
+                                <ion-card-subtitle>{{obj.user.name != '' ? obj.user.login : obj.user.login}}</ion-card-subtitle>
+                            </ion-row>
+                            <ion-row>
+                                <p class="specie_ident">Especie identificada <b>{{obj.taxon.name}}</b></p>
+                                <p class="specie_ident" *ngIf="obj.body">{{obj.body}}</p>
+                            </ion-row>
+                        </ion-col>
+                        <span class="date" pull-rigth float-end>{{obj.created_at | date:'HH:mm dd/MM/yy'}}</span>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-list *ngIf="item.comments_count > 0 && itemMore">
+                <ion-item *ngFor="let obj of itemMore.comments">
+                    <ion-img *ngIf="obj.user.user_icon_url" [src]="obj.user.user_icon_url"></ion-img>
+                    <ion-icon *ngIf="obj.user.user_icon_url == null" class="avatar" name="person"></ion-icon>
+                    <ion-col>
+                        <ion-row>
+                            <ion-card-subtitle>{{obj.user.name != '' ? obj.user.login : obj.user.login}}</ion-card-subtitle>
+                        </ion-row>
+                        <ion-row>
+                            <p class="specie_ident" *ngIf="obj.body">{{obj.body}}</p>
+                        </ion-row>
+                    </ion-col>
+                    <span class="date" pull-rigth float-end>{{obj.created_at | date:'HH:mm dd/MM/yy'}}</span>
+
+                    <!--<ion-img *ngIf="obj.user.user_icon_url" [src]="obj.user.user_icon_url"></ion-img>-->
+                    <!--<ion-col>-->
+                    <!--<ion-icon class="avatar" *ngIf="obj.user.user_icon_url == null" name="person"></ion-icon>-->
+                    <!--<ion-card-subtitle>{{obj.user.name != '' ?  obj.user.login : obj.user.login}}</ion-card-subtitle>-->
+                    <!--<span class="date">{{obj.created_at | date:'HH:mm dd/MM/yy'}}</span>-->
+                    <!--</ion-col>-->
+                </ion-item>
+            </ion-list>
+        </ion-row>
+        <ion-row>
+            <ion-col col-12 size="12">
+                <form #messageForm="ngForm" (ngSubmit)="sendMessage(messageForm)">
+
+                    <ion-row (click)="selectTaxo()" text-center="">
+                        <!--<ion-col sizeMd="3">-->
+                        <ion-item class="no-bottom-border">
+                            <ion-icon name="search" slot="start"></ion-icon>
+                            <ion-input name="taxo" #taxo="ngModel" [(ngModel)]="message.taxo" placeholder="{{'IDENTIFY'|translate}}" disabled="true"></ion-input>
+                            <ion-icon name="close" [hidden]="taxo==null" slot="end" (click)="removeTaxo($event)"></ion-icon>
+                        </ion-item>
+                    </ion-row>
+                    <ion-textarea name="msg" #msg="ngModel" [(ngModel)]="message.body" placeholder="{{'WRITE_A_MESSAGE'|translate}}"></ion-textarea>
+                    <!--<ion-button type="submit" [disabled]="msg.value == null" >Añadir mensaje</ion-button>-->
+                    <ion-button type="submit">{{this.formMessage?('ADD_MESSAGE'|translate):'ADD_IDENTIFICATION'|translate}}</ion-button>
+                </form>
+            </ion-col>
+        </ion-row>
+    </div>
+    <!--</ion-item-divider>-->
+</ion-content>

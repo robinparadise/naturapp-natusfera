@@ -1,0 +1,147 @@
+ion-content {
+    --background: transparent;
+    background: transparent;
+}
+
+.user-name {
+    //float: right;
+    position: absolute;
+    top: 0;
+    background: rgba(255, 255, 255, 0.63);
+    right: 0;
+    z-index: 9;
+    border-radius: 4px;
+    padding: .4em .5em;
+    ion-icon {
+        vertical-align: sub;
+    }
+}
+
+ion-slide {
+    width: 100%;
+    max-height: 20em;
+}
+
+ion-slide > ion-img {
+    height: 10em;
+    max-height: 20em;
+}
+
+#map_canvas,
+#map_canvas2 {
+    height: 20em;
+    width: 100%;
+}
+
+ion-list,
+form {
+    width: 100%
+}
+
+.user-messages {
+    .title-divider {
+        margin: 0.65em 0.8em;
+    }
+    .specie_ident {
+        margin-top: 0;
+        margin-left: .45em;
+    }
+    p {
+        color: grey;
+        font-size: 0.9rem;
+    }
+    ion-icon.avatar {
+        height: 48px;
+        width: 48px;
+    }
+    ion-card-subtitle {
+        margin-left: .4em
+    }
+    .date {
+        font-size: .75rem;
+        float: right;
+        margin-top: -2.8em;
+    }
+    ion-button {
+        margin: 0 auto;
+    }
+    form {
+        text-align: center;
+        margin-bottom: 1em;
+    }
+}
+
+form {
+    ion-item {
+        text-align: center;
+        margin: 0 auto;
+        root {
+            --border-color: transparent;
+        }
+    }
+}
+
+//DAVID
+.content-slider {
+    width: 100%;
+}
+
+.swiper-pagination {
+    z-index: 1000 !important;
+}
+
+.relative-slider {
+    position: relative;
+}
+
+.sadow-slider {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    z-index: 5;
+}
+
+.swiper-slide img{
+    width: 100%;
+    height: 295px;
+    object-fit: cover;
+}
+.observation{
+    position: absolute;
+    font-size: 20px;
+    z-index: 1000;
+    bottom: 60px;
+    color: #fff;
+    font-family: var(--fuente-principal);
+    text-align: center;
+    width: 100%;
+    div{
+        font-size: 14px;
+        display: block;
+        color: #73e600;
+    }
+}
+
+.back-btn{
+    width: 40px;
+    position: absolute;
+    z-index: 1000;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+}
+
+//ion-slides {
+//    &:before {
+//        content: "";
+//        position: absolute;
+//        bottom: 0;
+//        z-index: 5;
+//        left: 0;
+//        width: 100%;
+//        background-image: url(../../../assets/img/headers/shadow.png);
+//        height: 400px;
+//        background-size: cover;
+//    }
+//}

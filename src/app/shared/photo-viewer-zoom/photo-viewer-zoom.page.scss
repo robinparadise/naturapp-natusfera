@@ -1,0 +1,19 @@
+ion-header{
+  background: black;
+  ion-toolbar, .toolbar-container, .toolbar-background{
+    background: black;
+    --background: black;
+  }
+  ion-icon{
+    color: white;
+    font-size: 1.2rem;
+  }
+}
+ion-content{
+  --background: black;
+  ion-slides{
+    background-color:black;
+    color:white;
+    height:100%
+  }
+}

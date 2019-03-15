@@ -1,0 +1,122 @@
+<ion-header *ngIf="editMode">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/explore"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div id="scroll-images" class="addImages" (swipe)="swipePhotosRight($event)">
+        <div class="image">
+            <div class="image new-image" (click)="presentSelectSourceImage()">
+                <ion-icon name="add"></ion-icon>
+            </div>
+        </div>
+      <!--   *ngFor="let photo of photosEdit, let i = index" (press)="showDeleteImage(i, photo)" -->
+      
+        <div class="image" *ngFor="let photo of photosEdit, let i = index">
+            <span>
+                <ion-fab-button size ="small" (click)="showDeleteImage(i, photo)">
+                    <ion-icon name="close"></ion-icon>
+                </ion-fab-button>
+            </span>
+            <img class="image" [src]="photo.thumb_url"   (press)="showDeleteImage(i, photo)">
+        </div>
+
+        <div class="image" *ngFor="let photo of photosUpload, let i = index">
+                <span>
+                    <ion-fab-button size ="small" (click)="showDeleteImage(i)">
+                        <ion-icon name="close"></ion-icon>
+                    </ion-fab-button>
+                </span>  
+                <img class="image" [src]="photo | safeImg">
+        </div>
+<!--        <div class="image">-->
+            
+<!--        </div>-->
+    </div>
+    <form #observeForm="ngForm" novalidate>
+        <ion-label>{{'WHAT_YOU_SEE'|translate}}</ion-label>
+        <ion-item-divider>
+            <ion-item>
+                <!--<ion-label *ngIf="taxo == null">Escoge especie</ion-label>-->
+
+                <!--<ion-label *ngIf="taxo!=null">{{taxo.name}}</ion-label>-->
+                <ion-input name="species_guess" #specie_guess="ngModel" [(ngModel)]="observe.specie_guess" placeholder="{{'CHOOSE_SPECIE'|translate}}"></ion-input>
+                <ion-icon *ngIf="ac == 'true'"  slot="end" name="search" (click)="addTaxo()"></ion-icon>
+                <ion-icon slot="end" [hidden]="taxo==null" name="close" (click)="removeTaxo($event)"></ion-icon>
+            </ion-item>
+        </ion-item-divider>
+        <ion-item-divider>
+            <ion-item>
+                <ion-icon slot="start" name="help-buoy"></ion-icon>
+                <ion-label>{{'HELP_FOR_ID'|translate}}</ion-label>
+                <ion-toggle name="help_me" #help_me="ngModel" [(ngModel)]="observe.help_me"></ion-toggle>
+            </ion-item>
+        </ion-item-divider>
+
+        <ion-item-divider class="top2">
+            <!--<ion-label>¿Qué viste?</ion-label>-->
+            <ion-item>
+                <ion-icon start="start" name="text"></ion-icon>
+                <ion-textarea  name="description" #description="ngModel" [(ngModel)]="observe.description" placeholder="{{'NOTES'|translate}}"></ion-textarea>
+            </ion-item>
+        </ion-item-divider>
+        <ion-item-divider>
+            <ion-item>
+                <ion-icon start="start" name="calendar"></ion-icon>
+                <ion-datetime display-format="D MMM YYYY H:mm" name="date" #date="ngModel" [max]="dateNow" [(ngModel)]="observe.date" placeholder="Fecha" type="date" required=""></ion-datetime>
+                <!--<ion-datetime display-format="MMM DD, YYYY" name="date" #date="ngModel" (ngModel)="observe.date" placeholder="Fecha" type="date" value="2012-12-15T13:47:20.789"></ion-datetime>-->
+                <!--<ion-datetime display-format="MMM DD, YYYY" name="date" #date="ngModel" [(ngModel)]="observe.date | date:'yyyy-MM-ddTHH:mm:ss'" placeholder="Fecha" type="date" [value]="observe.date | date:'yyyy-MM-ddTHH:mm:ss'" required=""></ion-datetime>-->
+                <!--<ion-datetime display-format="D MMM YYYY H:mm" value="2012-12-15T13:47:20.789" [value]="observe.date | date:'yyyy-MM-ddTHH:mm:ss'"></ion-datetime>-->
+                <!--<ion-datetime display-format="MM-DD-YY" value="2012-12-15" [value]="observe.date | date:'yyyy-MM-dd'"></ion-datetime>-->
+            </ion-item>
+        </ion-item-divider>
+        <ion-item-divider>
+            <ion-item (click)="changePosition()">
+                <ion-icon start="start" name="pin"></ion-icon>
+<!--                 <ion-input *ngIf="select_position==null" class="position" placeholder="Position" type="string" [value]="coords ? ('MY_POSITION'|translate):''" contenteditable="false" disabled></ion-input>
+                <ion-input *ngIf="select_position" class="position" type="string" value="{{'SELECT_POSITION'|translate}}" editable="false" contenteditable="false" disabled></ion-input> -->
+                <ion-input *ngIf="select_position == null" class="position" placeholder="Position" type="string"
+                    [value]="select_position" readonly></ion-input>
+                    <span>{{ select_position | coordinates}}</span>
+                <ion-icon slot="end" [hidden]="select_position==null" name="close" (click)="removeSelectedPosition($event)"></ion-icon>
+            </ion-item>
+        </ion-item-divider>
+
+        <ion-item-divider>
+            <ion-item>
+                <ion-label>{{'GEO_PRIVACY'|translate}}</ion-label>
+<!--                <ion-toggle name="geo_privacy" #geo_privacy="ngModel" [(ngModel)]="observe.geo_privacy"></ion-toggle>-->
+                <ion-select name="geoprivacy" #geoprivacy="ngModel"  value="open" [(ngModel)]="observe.geoprivacy" okText="Ok" cancelText="Cancel">
+                    <ion-select-option value="open" selected>open </ion-select-option>
+                    <ion-select-option value="obscure">obscure</ion-select-option>
+                    <ion-select-option value="private">private</ion-select-option>
+                </ion-select>
+            </ion-item>
+        </ion-item-divider>
+        <ion-item-divider>
+            <ion-item>
+                <ion-icon start="start" name="globe"></ion-icon>
+                <ion-label>{{'IS_CAPTIVE'|translate}}</ion-label>
+                <ion-toggle name="captive" #captive="ngModel" [(ngModel)]="observe.captive"></ion-toggle>
+            </ion-item>
+        </ion-item-divider>
+        <ion-item-divider>
+            <ion-item (click)="addProject()">
+                <ion-label *ngIf="project==null">{{'PROJECTS'|translate}}</ion-label>
+                <ion-label *ngIf="project!=null">{{project.title}}
+
+                </ion-label>
+                <ion-icon slot="end" [hidden]="project==null" name="close" (click)="removeProject($event)"></ion-icon>
+            </ion-item>
+        </ion-item-divider>
+        <ion-row class="top2">
+            <ion-button id="save" color="light" expand="" block="full" size="medium" class="medium"  (click)="save(observeForm)">
+                <ion-icon name="save"></ion-icon>{{'SAVE'|translate}}</ion-button>
+            <ion-button id="observe" color="primary" expand="full" block="full" size="medium" class="medium" type="submit" (click)="checkLoginAndSubmit(observeForm)">{{'UPLOAD_OBSERVATION'|translate}}</ion-button>
+        </ion-row>
+    </form>
+</ion-content>

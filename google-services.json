@@ -1,0 +1,121 @@
+{
+  "project_info": {
+    "project_number": "986340483876",
+    "firebase_url": "https://solar-center-115409.firebaseio.com",
+    "project_id": "solar-center-115409",
+    "storage_bucket": "solar-center-115409.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:986340483876:android:bb96683c5a5c998d",
+        "android_client_info": {
+          "package_name": "org.gbif.inaturalist.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "986340483876-36mv6ne2ct6li6l3hpn4cus431ebp05e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.gbif.inaturalist.android",
+            "certificate_hash": "d5eaa510ef37271d11518f451c63d91ce54284e8"
+          }
+        },
+        {
+          "client_id": "986340483876-2ltkrdhrbibc2klugvan3rn8j7t60l7e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsIMRmEqRbuv-kmd2qBAyCkcWd7LTU0a8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "986340483876-2ltkrdhrbibc2klugvan3rn8j7t60l7e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "986340483876-cercdd40e1b2b6rhj8ufs9skpetj6kn7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.naturapp.dev"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:986340483876:android:bb56583b2f517ea6",
+        "android_client_info": {
+          "package_name": "org.naturapp.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "986340483876-ar1it88h74osmcrbabrfcems1ato48be.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.naturapp.dev",
+            "certificate_hash": "d5eaa510ef37271d11518f451c63d91ce54284e8"
+          }
+        },
+        {
+          "client_id": "986340483876-70e9fint1c9qgcslsrionte8t6uf1kuu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.naturapp.dev",
+            "certificate_hash": "9785c36252d37c674d75d3d4287316c6c48a6b4d"
+          }
+        },
+        {
+          "client_id": "986340483876-2ltkrdhrbibc2klugvan3rn8j7t60l7e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsIMRmEqRbuv-kmd2qBAyCkcWd7LTU0a8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "986340483876-2ltkrdhrbibc2klugvan3rn8j7t60l7e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "986340483876-cercdd40e1b2b6rhj8ufs9skpetj6kn7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.naturapp.dev"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

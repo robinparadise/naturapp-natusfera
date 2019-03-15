@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg4533"
+   version="1.1"
+   viewBox="0 0 12.660137 10.608379"
+   height="10.608379mm"
+   width="12.660136mm">
+  <defs
+     id="defs4527" />
+  <metadata
+     id="metadata4530">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-41.558312,-1.1907504)"
+     id="layer1">
+    <path
+       d="M 54.042059,2.3926643 H 41.734701 v -1.025525 h 12.307358 z"
+       style="fill:#73e600;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.35277775"
+       id="path3449" />
+    <path
+       d="M 54.042059,5.4692383 H 41.734701 v -1.025525 h 12.307358 z"
+       style="fill:#73e600;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.35277775"
+       id="path3451" />
+    <path
+       d="M 54.042059,2.3926643 H 41.734701 v -1.025525 h 12.307358 z"
+       style="fill:none;stroke:#051c4f;stroke-width:0.35277775;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       id="path3453" />
+    <path
+       d="M 54.042059,11.622741 H 41.734701 v -1.025525 h 12.307358 z"
+       style="fill:none;stroke:#051c4f;stroke-width:0.35277775;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       id="path3455" />
+    <path
+       d="M 54.042059,8.5461663 H 41.734701 v -1.025525 h 12.307358 z"
+       style="fill:none;stroke:#051c4f;stroke-width:0.35277775;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       id="path3457" />
+    <path
+       d="M 54.042059,5.4692383 H 41.734701 v -1.025525 h 12.307358 z"
+       style="fill:none;stroke:#051c4f;stroke-width:0.35277775;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       id="path3459" />
+  </g>
+</svg>

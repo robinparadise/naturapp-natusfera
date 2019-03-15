@@ -1,0 +1,78 @@
+<ion-header>
+  <div class="header-user" *ngIf="user" >
+    <div>
+      <h3>{{user.fullname || user.name}}</h3>
+      <ion-button id="mail" fill="clear" routerLink="/me/notifications">
+        <ion-icon class="font28" name="mail" pull-right></ion-icon>
+      </ion-button>
+      <ion-button id="icon-gear" fill="clear" routerLink="/me/settings">
+        <ion-icon class="font28" name="natur-gear" pull-right></ion-icon>
+      </ion-button>
+    </div>
+
+    <ion-avatar *ngIf="user.picture">
+      <ion-img [src]="user.picture"></ion-img>
+    </ion-avatar>
+    <ion-avatar *ngIf="user.picture == null">
+      <ion-icon name="person"></ion-icon>
+    </ion-avatar>
+  </div>
+  <div class="content-background">
+    <div class="bottom-rounded">
+        <img src="../../assets/img/headers/mask.png" alt="">
+    </div>
+    <!-- <div class="bottom-rounded"></div> -->
+  </div>
+</ion-header>
+
+<ion-content *ngIf="user">
+ <div class="separador"></div>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="{{'PULL_REFRESH'|translate}}"
+          refreshingSpinner="circles"
+          refreshingText="{{'REFRESHING'|translate}}">
+  </ion-refresher-content>
+  </ion-refresher>
+  <h3>Observations: {{observations_count || 0}}</h3>
+<!--   <ion-item *ngFor="let obj of localObservations, let i = index" (click)="viewSavedItem(obj, i)" (press)="longPress($event, obj, i)">
+    <img *ngIf="obj.photos.length > 0" [src]="obj.photos[0]" src-default src-fallback="assets/img/default.png"/>
+    <ion-img *ngIf="obj.photos.length > 0" [src]="obj.photos[0].thumb_url"></ion-img>
+    <ion-col>
+      <ion-row>
+      <ion-card-title><ion-icon name="save"></ion-icon>{{obj.form.species_guess?obj.form.species_guess:'OBSERVATION_SAVED'|translate}}</ion-card-title>
+      </ion-row>
+      <ion-row>
+      <span class="date">{{obj.form.date | date:'HH:mm dd/MM/yy'}}</span>
+    </ion-row>
+    </ion-col>
+    <div class="pull-right" float-lg-right="" float-end="true">
+      <ion-icon name="locate" *ngIf="obj.position"></ion-icon>
+    </div>
+  </ion-item> -->
+  <ion-list *ngIf="data" class="me-list">
+    <ion-item *ngFor="let obj of data" (click)="viewItem(obj)" (press)="longPress($event, obj)">
+      <ion-img *ngIf="obj.photos.length > 0" [src]="obj.photos[0].thumb_url"></ion-img>
+      <ion-col>
+        <ion-row>
+          <ion-card-title>{{obj.species_guess || 'OBSERVATION_EMPTY' | translate }}</ion-card-title>
+        </ion-row>
+        <ion-row>
+          <span class="date">{{obj.created_at | date:'HH:mm dd/MM/yy'}}</span>
+        </ion-row>
+      </ion-col>
+<!--
+      <div class="pull-right" float-lg-right="" float-end="true">
+        <ion-icon name="locate" *ngIf="obj.latitude"></ion-icon>
+      </div>
+-->
+    </ion-item>
+  </ion-list>
+  <div class="content">
+    <div class="content-empty text-center" *ngIf="data && data.length == 0">
+      <h3>{{'EMPTY_OBSERVATIONS'|translate}}</h3>
+      <img height="200px" src="../../assets/img/emoji-trouble.svg">
+    </div>
+  </div>
+</ion-content>

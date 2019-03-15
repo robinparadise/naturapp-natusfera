@@ -1,0 +1,36 @@
+<ion-content>
+  <div class="header-projects">
+  <div class="header-title" [class.hide]="square">Proyectos</div>
+  <div id="content-search" class="search-btn">
+    <input #inputEl type="text" name="input"
+      class="input"
+      placeholder="Buscar" 
+      [class.square]="square"
+      (input)="this.seacrhQuery$.next($event.target.value)">
+    <img class="search" (click)="expand()"
+      [class.close]="close"
+      src="../../assets/img/svg/search.svg" alt="">
+  </div>
+  <img style="width:100%" src="../../assets/img/headers/projects.jpg" alt=""></div>
+  
+  <div class="container-tabs">
+      <ion-segment [(ngModel)]="type"  (change)="segmentChanged($event)" (ionChange)="segmentChanged($event)" background-checked="#000">
+      <ion-segment-button *ngIf="this.natuClient.user != null"  value="join"><img class="img-tabs" src="../../assets/img/svg/project1.svg" alt=""></ion-segment-button>
+      <ion-segment-button value="featured"><img class="img-tabs" src="../../assets/img/svg/project2.svg" alt=""></ion-segment-button>
+      <ion-segment-button value="near"><img class="img-tabs" src="../../assets/img/svg/project3.svg" alt=""></ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <ion-list>
+    <ion-card *ngFor="let obj of cache[type]" (click)="select(obj)">
+      <ion-card-header>
+        <ion-card-title><img class="proyect-icon" src="../../assets/img/svg/proyects.svg" alt=""><div class="project-tittle">{{obj.title}}</div></ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    <ion-item *ngIf="this.cache['loadMore'] && this.cache['loadMore'].length > 0">
+      <ion-button (click)="loadMore(this.query)">
+        Load more
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

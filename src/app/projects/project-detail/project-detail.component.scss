@@ -1,0 +1,62 @@
+ion-list {
+    img {
+        height: 40px;
+        width: 40px;
+        margin-right: 10px;
+        background-size: cover;
+        object-fit: cover;
+    }
+    ion-card-title {
+        font-family: var(--fuente-principal);
+        color: #051c4f;
+        font-size: 14px;
+    }
+}
+
+.add-btn {
+    float: left;
+    font-family: var(--fuente-principal);
+    width: 50px;
+    height: 25px;
+    border: solid 1px #73e600;
+    color: #73e600;
+    text-align: center;
+    line-height: 25px;
+    font-size: 12px;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+.header-projects {
+    position: relative;
+    min-height: 18%;
+    background-size: 100%;
+    background-position-y: 0px;
+    background-image: url('../../../assets/img/headers/projects-detail.jpg');
+    background-repeat: no-repeat;
+    .header-title {
+        position: absolute;
+        z-index: 500;
+        color: #fff;
+        top: 15px;
+        left: 70px;
+        font-size: 16px;
+        border-left: solid 1px #fff;
+        padding-left: 10px;
+        font-family: var(--fuente-principal);
+    }
+    .back-btn {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 40px;
+        cursor: pointer;
+    }
+    .favourite {
+        width: 50px;
+        position: absolute;
+        bottom: 5px;
+        right: 0px;
+    }
+}
